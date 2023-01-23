@@ -1,19 +1,24 @@
-﻿const string rock = "Rock";
+﻿using System.Drawing;
+
+const string rock = "Rock";
 const string paper = "Paper";
 const string scissors = "Scissors";
 int compPoints = 0;
 int playerPoints = 0;
+Console.ForegroundColor = ConsoleColor.Yellow;
+Console.BackgroundColor = ConsoleColor.Blue;
+Console.Clear();
 while (true)
 {
     Console.WriteLine("Choose [r]ock, [p]aper, [s]cissors, [e]xit");
     string playerChoose = Console.ReadLine();
-    if (playerChoose == "r" || playerChoose == "rock")
+    if (playerChoose.ToLower() == "r" || playerChoose == "rock")
         playerChoose = rock;
-    else if (playerChoose == "s" || playerChoose == "paper")
+    else if (playerChoose.ToLower() == "p" || playerChoose == "paper")
         playerChoose = paper;
-    else if (playerChoose == "s" || playerChoose == "scissors")
+    else if (playerChoose.ToLower() == "s" || playerChoose == "scissors")
         playerChoose = scissors;
-    else if (playerChoose == "e" || playerChoose == "exit")
+    else if (playerChoose.ToLower() == "e" || playerChoose == "exit")
         break;
     else
         Console.WriteLine("Invalid Input. Try Again...");
@@ -28,7 +33,8 @@ while (true)
             case 2: compChoose = paper; break;
             case 3: compChoose = scissors; break;
         }
-        Console.WriteLine($"the computer chose {compChoose}");
+        Console.WriteLine($"you chose         : {playerChoose}");
+        Console.WriteLine($"the computer chose: {compChoose}");
         if (playerChoose == compChoose)
         {
             Console.WriteLine("Drow");
